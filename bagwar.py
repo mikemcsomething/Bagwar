@@ -12,10 +12,10 @@ def bag_war(reps = 5000):
         small_bag_score = 0
         small_bag_supporters = 5
         small_bag_madness = 0
-        original_small_bag_values = [2,3,3,0,0,00,0]
+        original_small_bag_values = [2,3,3,0,0,99,0]
         small_bag_values = original_small_bag_values
         small_bag_audit = []
-        while small_bag_supporters > 1:
+        for i in range(small_bag_supporters-1):
             
             small_bag_pull = np.random.choice(small_bag_values)
         
@@ -23,14 +23,17 @@ def bag_war(reps = 5000):
             
                 small_bag_supporters -= 1
                 small_bag_madness += 1
-            
-            elif small_bag_pull == 00:
-            
+            elif small_bag_pull == 99:
+                small_bag_pull == 0
                 small_bag_supporters -= 2
                 small_bag_madness +=1
-            elif small_bag_madness == 4:
+            else:
+                small_bag_score += small_bag_pull
+            if small_bag_madness == 4:
                 small_bag_values == original_small_bag_values
-            small_bag_score += small_bag_pull
+            if small_bag_supporters <= 0:
+                small_bag_pull == -100    
+
             small_bag_values.remove(small_bag_pull)
             small_bag_audit.append(small_bag_pull) 
         print("Small Bag Score is " + str(small_bag_score) + " From Tokens: " + str(small_bag_audit) + " Final Madness " + str(small_bag_madness) + " Supporters: " + str(small_bag_supporters))
@@ -41,10 +44,10 @@ def bag_war(reps = 5000):
         big_bag_supporters = 5
         big_bag_madness = 0
         big_bag_audit = []
-        original_big_bag_values = [1,1,1,1,2,3,3,0,0,00,0]
+        original_big_bag_values = [1,1,1,1,2,3,3,0,0,99,0]
         big_bag_values = original_big_bag_values
 
-        while big_bag_supporters > 1:
+        for i in range(big_bag_supporters-1):
             
             big_bag_pull = np.random.choice(big_bag_values)
 
@@ -52,14 +55,16 @@ def bag_war(reps = 5000):
                 
                 big_bag_supporters -= 1
                 big_bag_madness += 1
-            
-            elif big_bag_pull == 00:
-            
+            elif big_bag_pull == 99:
+                big_bag_pull == 0
                 big_bag_supporters -= 2
                 big_bag_madness +=1
-            elif big_bag_madness == 4:
+            else:
+                big_bag_score += big_bag_pull
+            if big_bag_madness == 4:
                 big_bag_values == original_big_bag_values
-            big_bag_score += big_bag_pull
+            if big_bag_supporters <= 0:
+                big_bag_pull == -100    
             big_bag_values.remove(big_bag_pull)  
             big_bag_audit.append(big_bag_pull)
         print("Big Bag Score is " + str(big_bag_score) + " From Tokens: " + str(big_bag_audit) + " Final Madness " + str(big_bag_madness) + " Supporters: " + str(big_bag_supporters))
