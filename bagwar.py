@@ -5,17 +5,20 @@ small_bag = [2,3,3,0,0,99,0]
 big_bag = [1,1,1,1,2,3,3,0,0,99,0]
 
 
-def bag_pull(bag):
-    og_bag = bag
+def bag_pull(selected_bag):
+    og_bag = selected_bag
     bag_audit = []
-    if len(bag) == 0:
-        bag == og_bag
+    if len(selected_bag) == 0:
+        selected_bag == og_bag
     else:
-        bag_pull = np.random.choice(bag)
-        bag.remove(bag_pull)
-        bag_audit.append(bag_pull) 
-        print(bag_audit)
-bag_pull(small_bag)
+        current_chip = np.random.choice(selected_bag)
+        selected_bag.remove(current_chip)
+        bag_audit.append(current_chip)
+    
+    print("Current Chip is " + str(current_chip))
+bag_pull(big_bag)
+
+
 
 
 
