@@ -1,6 +1,6 @@
 import numpy as np
 
-def bag_war(reps = 200):
+def bag_war(reps = 10000):
 
     small_bag_wins = 0
     big_bag_wins = 0
@@ -12,7 +12,7 @@ def bag_war(reps = 200):
         small_bag_score = 0
         small_bag_supporters = 4
         small_bag_madness = 0
-        original_small_bag_values = [3,3,3,00,0,0]
+        original_small_bag_values = [3,3,3,00,0,0,2]
         small_bag_values = original_small_bag_values
         small_bag_audit = []
         while small_bag_supporters > 1 and small_bag_madness < 4:
@@ -41,7 +41,7 @@ def bag_war(reps = 200):
         big_bag_supporters = 4
         big_bag_madness = 0
         big_bag_audit = []
-        original_big_bag_values = [1,1,1,3,3,3,0,00,0]
+        original_big_bag_values = [1,1,1,3,3,3,0,00,0,2]
         big_bag_values = original_big_bag_values
 
         while big_bag_supporters > 1 and big_bag_madness < 4:
